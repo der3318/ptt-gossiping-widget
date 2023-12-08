@@ -8,8 +8,8 @@
 // This GUID is the same GUID that was provided in the 
 // registration of the COM Server and Class Id in the .appxmanifest.
 static constexpr GUID widget_provider_clsid
-{ /* 101D03A3-6FC8-4887-9B64-310A7B164319 */
-    0x101d03a3, 0x6fc8, 0x4887, {0x9b, 0x64, 0x31, 0x0a, 0x7b, 0x16, 0x43, 0x19}
+{ /* 5818FE28-B6A3-4D11-A835-5C5AB3B6F2F3 */
+    0x5818fe28, 0xb6a3, 0x4d11, {0xa8, 0x35, 0x5c, 0x5a, 0xb3, 0xb6, 0xf2, 0xf3}
 };
 
 wil::unique_event g_shudownEvent(wil::EventOptions::None);

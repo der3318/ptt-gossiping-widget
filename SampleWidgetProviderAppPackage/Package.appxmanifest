@@ -46,7 +46,7 @@
 				<com:Extension Category="windows.comServer">
 					<com:ComServer>
 						<com:ExeServer Executable="SampleWidgetProviderApp\SampleWidgetProviderApp.exe" Arguments="-RegisterProcessAsComServer" DisplayName="SampleWidgetProviderApp">
-							<com:Class Id="101D03A3-6FC8-4887-9B64-310A7B164319" DisplayName="SampleWidgetProvider" />
+							<com:Class Id="5818FE28-B6A3-4D11-A835-5C5AB3B6F2F3" DisplayName="SampleWidgetProvider" />
 						</com:ExeServer>
 					</com:ComServer>
 				</com:Extension>
@@ -58,7 +58,7 @@
 									<Icon Path="Images\StoreLogo.png" />
 								</ProviderIcons>
 								<Activation>
-									<CreateInstance ClassId="101D03A3-6FC8-4887-9B64-310A7B164319" />
+									<CreateInstance ClassId="5818FE28-B6A3-4D11-A835-5C5AB3B6F2F3" />
 								</Activation>
 								<Definitions>
 									<Definition Id="Counting_Widget"
