@@ -3,24 +3,18 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="CountingWidgetImpl.cpp">
+    <ClCompile Include="PttGossipingWidgetImpl.cpp">
       <Filter>WidgetImplementations</Filter>
     </ClCompile>
     <ClCompile Include="WidgetProvider.cpp" />
-    <ClCompile Include="WeatherWidgetImpl.cpp">
-      <Filter>WidgetImplementations</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="WidgetImplBase.h" />
-    <ClInclude Include="CountingWidgetImpl.h">
+    <ClInclude Include="PttGossipingWidgetImpl.h">
       <Filter>WidgetImplementations</Filter>
     </ClInclude>
     <ClInclude Include="WidgetProvider.h" />
-    <ClInclude Include="WeatherWidgetImpl.h">
-      <Filter>WidgetImplementations</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -117,19 +117,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CountingWidgetImpl.h" />
-    <ClInclude Include="WeatherWidgetImpl.h" />
+    <ClInclude Include="PttGossipingWidgetImpl.h" />
     <ClInclude Include="WidgetImplBase.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="WidgetProvider.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CountingWidgetImpl.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="WeatherWidgetImpl.cpp" />
+    <ClCompile Include="PttGossipingWidgetImpl.cpp" />
     <ClCompile Include="WidgetProvider.cpp" />
   </ItemGroup>
   <ItemGroup>

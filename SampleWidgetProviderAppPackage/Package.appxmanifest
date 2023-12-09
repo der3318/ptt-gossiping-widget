@@ -61,35 +61,9 @@
 									<CreateInstance ClassId="5818FE28-B6A3-4D11-A835-5C5AB3B6F2F3" />
 								</Activation>
 								<Definitions>
-									<Definition Id="Counting_Widget"
-										DisplayName="Sample Counting Widget"
-										Description="Weather Widget Description">
-										<Capabilities>
-											<Capability>
-												<Size Name="small" />
-											</Capability>
-											<Capability>
-												<Size Name="medium" />
-											</Capability>
-											<Capability>
-												<Size Name="large" />
-											</Capability>
-										</Capabilities>
-										<ThemeResources>
-											<Icons>
-												<Icon Path="ProviderAssets\Counting_Icon.png" />
-											</Icons>
-											<Screenshots>
-												<Screenshot Path="ProviderAssets\Counting_Screenshot.png" DisplayAltText="For accessibility" />
-											</Screenshots>
-											<!-- DarkMode and LightMode are optional -->
-											<DarkMode />
-											<LightMode />
-										</ThemeResources>
-									</Definition>
-									<Definition Id="Weather_Widget"
-										DisplayName="Sample Weather Widget"
-										Description="Weather Widget Description">
+									<Definition Id="PTT_Gossiping_Widget"
+										DisplayName="PTT Gossiping Widget"
+										Description="PTT Gossiping Trending Topics">
 										<Capabilities>
 											<Capability>
 												<Size Name="medium" />
@@ -100,10 +74,10 @@
 										</Capabilities>
 										<ThemeResources>
 											<Icons>
-												<Icon Path="ProviderAssets\Weather_Icon.png" />
+												<Icon Path="ProviderAssets\Icon.png" />
 											</Icons>
 											<Screenshots>
-												<Screenshot Path="ProviderAssets\Weather_Screenshot.png" DisplayAltText="For accessibility" />
+												<Screenshot Path="ProviderAssets\Screenshot.png" DisplayAltText="For accessibility" />
 											</Screenshots>
 											<!-- DarkMode and LightMode are optional -->
 											<DarkMode />

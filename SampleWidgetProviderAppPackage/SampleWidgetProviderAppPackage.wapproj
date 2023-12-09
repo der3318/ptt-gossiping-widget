@@ -48,8 +48,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Templates\WeatherWidgetTemplate.json" />
-    <Content Include="Templates\CountingWidgetTemplate.json" />
+    <Content Include="templates\PttGossipingWidgetTemplate.json" />
     <Content Include="Images\SplashScreen.scale-200.png" />
     <Content Include="Images\LockScreenLogo.scale-200.png" />
     <Content Include="Images\Square150x150Logo.scale-200.png" />
@@ -57,10 +56,8 @@
     <Content Include="Images\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Images\StoreLogo.png" />
     <Content Include="Images\Wide310x150Logo.scale-200.png" />
-    <Content Include="ProviderAssets\Counting_Icon.png" />
-    <Content Include="ProviderAssets\Counting_Screenshot.png" />
-    <Content Include="ProviderAssets\Weather_Icon.png" />
-    <Content Include="ProviderAssets\Weather_Screenshot.png" />
+    <Content Include="ProviderAssets\Icon.png" />
+    <Content Include="ProviderAssets\Screenshot.png" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
   <ItemGroup>

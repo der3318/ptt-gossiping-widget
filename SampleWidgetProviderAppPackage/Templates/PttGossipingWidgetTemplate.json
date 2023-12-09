@@ -1,0 +1,76 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.0",
+  "speak": "<s>PTT Gossiping Trending Topics</s>",
+  "backgroundImage": "https://i.imgur.com/RFi1AdI.png",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "$data": "${posts}",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "180px",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${description}",
+              "wrap": true,
+              "weight": "Bolder"
+            },
+            {
+              "type": "ColumnSet",
+              "columns": [
+                {
+                  "type": "Column",
+                  "width": "stretch",
+                  "items": [
+                    {
+                      "type": "ActionSet",
+                      "actions": [
+                        {
+                          "type": "Action.OpenUrl",
+                          "title": "📰 View",
+                          "url": "${link}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "Column",
+                  "width": "stretch",
+                  "items": [
+                    {
+                      "type": "TextBlock",
+                      "text": "${status}",
+                      "wrap": true,
+                      "weight": "Bolder"
+                    }
+                  ]
+                }
+              ],
+              "spacing": "Small"
+            }
+          ],
+          "verticalContentAlignment": "Center"
+        },
+        {
+          "type": "Column",
+          "width": "80px",
+          "items": [
+            {
+              "type": "Image",
+              "url": "${image}",
+              "width": "80px",
+              "height": "80px"
+            }
+          ]
+        }
+      ],
+      "spacing": "Medium",
+      "separator": true
+    }
+  ]
+}

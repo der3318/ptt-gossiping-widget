@@ -29,11 +29,10 @@ std::shared_ptr<WidgetImplBase> CreateWidgetFn(winrt::WidgetContext widgetContex
     return newWidget;
 }
 
-#include "CountingWidgetImpl.h"
-#include "WeatherWidgetImpl.h"
+#include "PttGossipingWidgetImpl.h"
 
 // Register all widget types here, optionally specify an is enabled function
-const static std::array<WidgetImplCreationInfo, 2> s_widgetImplRegistry = { { {L"Counting_Widget", &CreateWidgetFn<CountingWidget>}, {L"Weather_Widget", &CreateWidgetFn<WeatherWidget>} } };
+const static std::array<WidgetImplCreationInfo, 1> s_widgetImplRegistry = { { {L"PTT_Gossiping_Widget", &CreateWidgetFn<PttGossipingWidget>} } };
 
 std::unordered_map<winrt::hstring, std::shared_ptr<WidgetImplBase>> WidgetProvider::m_runningWidgetImpl{};
 
