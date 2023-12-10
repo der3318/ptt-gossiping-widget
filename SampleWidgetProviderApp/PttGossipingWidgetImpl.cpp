@@ -59,33 +59,24 @@ static std::wstring RegexSearch(const std::wstring& str, const std::wstring& re)
 
 void PttGossipingWidget::RefreshPosts()
 {
-    constexpr int MaxPages = 5;
-    constexpr int NumPosts = 4;
-
     _posts.clear();
 
-    std::wstring rsp = GetPttPageContent(L"/bbs/Gossiping/index.html");
-    for (int page = 0; (page < MaxPages) && (std::size(_posts) < NumPosts); page++)
+    std::wstring rsp = GetPttPageContent(L"/bbs/Gossiping/search?q=recommend%3A50");
+    std::wstring::size_type start = rsp.find(L"\"nrec\"");
+    while (start != std::wstring::npos)
     {
-        rsp = GetPttPageContent(RegexSearch(rsp, L"href=\"(.*?)\">&lsaquo"));
-        std::wstring::size_type start = rsp.find(L"\"nrec\"");
-        while (start != std::wstring::npos)
+        std::wstring::size_type end = rsp.find(L"</a>", start + 1);
+        std::wstring content = rsp.substr(start, end - start);
+        PttGossipingPost post(RegexSearch(content, L">([^>]*?)</span>"), RegexSearch(content, L"href=\"(.*?)\">"), RegexSearch(content, L".html\">(.*)"), L"https://images.ptt.cc/ptt.jpg");
+        std::wstring image = RegexSearch(GetPttPageContent(post.link), L"src=\"https://cache.ptt.cc/c/https/([^>]*?)\\?");
+        if (!std::empty(image))
         {
-            std::wstring::size_type end = rsp.find(L"</a>", start + 1);
-            std::wstring content = rsp.substr(start, end - start);
-            PttGossipingPost post(RegexSearch(content, L">([^>]*?)</span>"), RegexSearch(content, L"href=\"(.*?)\">"), RegexSearch(content, L".html\">(.*)"), L"https://images.ptt.cc/ptt.jpg");
-            if ((post.vote.find(L"爆") != std::wstring::npos) || (std::size(post.vote) > 1))
-            {
-                std::wstring image = RegexSearch(GetPttPageContent(post.link), L"src=\"https://cache.ptt.cc/c/https/(.*?)\\?");
-                if (!std::empty(image))
-                {
-                    post.image = L"https://" + image;
-                }
-                _posts.emplace_back(post);
-            }
-            start = rsp.find(L"\"nrec\"", end + 1);
+            post.image = L"https://" + image;
         }
+        _posts.emplace_back(std::move(post));
+        start = rsp.find(L"\"nrec\"", end + 1);
     }
+    std::sort(std::begin(_posts), std::end(_posts), PttGossipingPost::Compare);
 
     // mock data for debugging
     _posts.emplace_back(L"爆", L"/bbs/Gossiping/index.html", L"[公告] Sample Post #1", L"https://images.ptt.cc/ptt.jpg");

@@ -8,6 +8,10 @@ public:
     std::wstring link;
     std::wstring name;
     std::wstring image;
+    static bool Compare(const PttGossipingPost& lhs, const PttGossipingPost& rhs)
+    {
+        return (lhs.image.find(L"images.ptt.cc") == std::wstring::npos) && (rhs.image.find(L"images.ptt.cc") != std::wstring::npos);
+    }
 };
 
 class PttGossipingWidget : public WidgetImplBase
