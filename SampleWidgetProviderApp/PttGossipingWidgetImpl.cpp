@@ -35,15 +35,23 @@ static std::wstring GetPttPageContent(const std::wstring& path)
     std::string response = "C:\\Users\\Public\\Documents\\PttRsp.txt";
 
     std::string command = "curl --cookie \"over18=1\" https://www.ptt.cc" + ConvertUTF16LE(CP_ACP, path) + " -o " + response;
-    (void)system(command.c_str());
+    STARTUPINFOA startupInfo = {};
+    startupInfo.cb = sizeof(startupInfo);
+    PROCESS_INFORMATION processInfo = {};
+    if (!CreateProcessA(NULL, &(command[0]), NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &startupInfo, &processInfo))
+    {
+        return std::wstring();
+    }
 
+    WaitForSingleObject(processInfo.hProcess, INFINITE);
+    CloseHandle(processInfo.hProcess);
+    CloseHandle(processInfo.hThread);
     std::ifstream stream(response, std::ios::binary);
     stream.seekg(0, std::ios::end);
     std::string rspUTF8(stream.tellg(), 0);
     stream.seekg(0);
     stream.read(&(rspUTF8[0]), std::size(rspUTF8));
     stream.close();
-
     return ComposeUTF16LE(CP_UTF8, rspUTF8);
 }
 
